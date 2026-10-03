@@ -1,0 +1,3982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WalletMandu — The Modern Everyday Carry | Engineered Physical Wallets</title>
+  <meta name="description" content="Handcrafted-style physical wallets engineered with premium PU leather, PVC, ballistic nylon, and recycled polyester. Slim profile, RFID shield, lifetime build.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* -------------------------------------------------------------
+       DESIGN SYSTEM & CSS VARIABLES
+       Aesthetic: Clean Modern E-Commerce Light Theme (Bellroy / Apple / Shinola)
+       Warm Stone, Crisp Pure White, Slate Obsidian, and Cognac Amber Accents
+       ------------------------------------------------------------- */
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-subtle: #F1F5F9;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.88);
+      
+      --accent-primary: #C2410C;       /* Rich warm cognac terracotta */
+      --accent-hover: #9A3412;
+      --accent-warm: #D97706;          /* Amber gold */
+      --accent-subtle: #FFF7ED;        /* Warm parchment tint */
+      --accent-border: #FDBA74;
+      
+      --text-main: #0F172A;           /* Deep obsidian slate */
+      --text-body: #334155;           /* Rich readable slate */
+      --text-muted: #64748B;          /* Subtle descriptive grey */
+      --text-light: #94A3B8;          /* Light caption */
+      
+      --border-subtle: #E2E8F0;       /* Hairline border */
+      --border-medium: #CBD5E1;
+      --border-focus: #0F172A;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 10px 25px -4px rgba(15, 23, 42, 0.06);
+      --shadow-hover: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 10px 15px -5px rgba(15, 23, 42, 0.04);
+      --shadow-drawer: -10px 0 40px rgba(15, 23, 42, 0.15);
+      
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Space Grotesk', var(--font-body);
+      --transition-base: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      line-height: 1.6;
+      background-color: var(--bg-primary);
+      color: var(--text-body);
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      outline: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* -------------------------------------------------------------
+       BUTTONS & CHIPS (Light Luxury Theme)
+       ------------------------------------------------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border-radius: var(--radius-full);
+      transition: var(--transition-base);
+      white-space: nowrap;
+      position: relative;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: var(--text-main);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+      border: 1px solid var(--text-main);
+    }
+
+    .btn-primary:hover {
+      background: #1E293B;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.28);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-accent {
+      background: linear-gradient(135deg, #C2410C 0%, #EA580C 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(194, 65, 12, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-accent:hover {
+      background: linear-gradient(135deg, #9A3412 0%, #C2410C 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(194, 65, 12, 0.38);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 9px 20px;
+      font-size: 0.88rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--accent-subtle);
+      color: var(--accent-primary);
+      border: 1px solid var(--accent-border);
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 52px auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      color: var(--accent-primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.6vw, 2.85rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* -------------------------------------------------------------
+       ANNOUNCEMENT BAR & NAVIGATION
+       ------------------------------------------------------------- */
+    .announcement-bar {
+      background: #0F172A;
+      color: #F8FAFC;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      text-align: center;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      z-index: 101;
+    }
+
+    .announcement-bar strong {
+      color: #FDBA74;
+      background: rgba(249, 115, 22, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition-base);
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: #0F172A;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+
+    .logo-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--text-body);
+      transition: var(--transition-base);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-primary);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cart-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      transition: var(--transition-base);
+    }
+
+    .cart-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-medium);
+      transform: scale(1.04);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-primary);
+      color: #FFF;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(194, 65, 12, 0.4);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      color: var(--text-main);
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Mobile Nav Dropdown */
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 74px;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transform: translateY(-120%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 99;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+    }
+
+    .mobile-nav-drawer.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-drawer a {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-nav-drawer a:hover {
+      color: var(--accent-primary);
+    }
+
+    /* -------------------------------------------------------------
+       HERO SECTION — MODERN LIGHT E-COMMERCE SHOWCASE
+       ------------------------------------------------------------- */
+    .hero {
+      padding: 60px 0 85px;
+      background: radial-gradient(circle at 85% 20%, #FFF7ED 0%, transparent 45%),
+                  radial-gradient(circle at 10% 80%, #F1F5F9 0%, transparent 40%),
+                  #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-badge-wrap {
+      margin-bottom: 20px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      font-size: 0.84rem;
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(194, 65, 12, 0.5);
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4.4vw, 3.8rem);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    .hero-title-highlight {
+      color: var(--accent-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(253, 186, 116, 0.45);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-desc {
+      font-size: 1.12rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* Hero Trust Rating Row */
+    .hero-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-stack img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      margin-left: -10px;
+      object-fit: cover;
+    }
+
+    .avatar-stack img:first-child {
+      margin-left: 0;
+    }
+
+    .proof-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stars-row {
+      color: #F59E0B;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .proof-text span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      flex-shrink: 0;
+    }
+
+    .trust-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trust-text strong {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .trust-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       HERO PRODUCT STAGE (STUDIO PHOTOGRAPHY & INTERACTIVE CONTROLS)
+       ------------------------------------------------------------- */
+    .hero-visual-stage {
+      position: relative;
+    }
+
+    .hero-showcase-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow-hover);
+      position: relative;
+    }
+
+    .hero-img-display {
+      width: 100%;
+      height: 440px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background: #F8FAFC;
+    }
+
+    .hero-img-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    .hero-showcase-box:hover .hero-img-display img {
+      transform: scale(1.03);
+    }
+
+    /* Angle / View Switcher Selector on Hero */
+    .hero-view-switch-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding: 6px 10px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .view-btn-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .view-switch-btn {
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      transition: var(--transition-base);
+    }
+
+    .view-switch-btn:hover {
+      color: var(--text-main);
+    }
+
+    .view-switch-btn.active {
+      background: #FFFFFF;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-color-preview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-color-preview span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .hero-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 1px var(--border-medium);
+      transition: transform 0.2s;
+    }
+
+    .hero-swatch:hover {
+      transform: scale(1.2);
+    }
+
+    .hero-swatch.active {
+      box-shadow: 0 0 0 2px var(--accent-primary);
+    }
+
+    /* Floating Badges */
+    .floating-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-card);
+      z-index: 3;
+    }
+
+    .floating-top-right {
+      top: 32px;
+      right: -24px;
+    }
+
+    .floating-bottom-left {
+      bottom: 64px;
+      left: -24px;
+    }
+
+    .floating-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-info strong {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      color: var(--text-main);
+      display: block;
+    }
+
+    .floating-info span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* -------------------------------------------------------------
+       MATERIALS SHOWCASE SECTION
+       ------------------------------------------------------------- */
+    .materials-section {
+      padding: 95px 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .materials-tabs-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .mat-tab-btn {
+      padding: 12px 24px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      color: var(--text-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+    }
+
+    .mat-tab-btn:hover {
+      border-color: var(--border-medium);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .mat-tab-btn.active {
+      background: #0F172A;
+      border-color: #0F172A;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+    }
+
+    .material-card-display {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      box-shadow: var(--shadow-card);
+      min-height: 480px;
+    }
+
+    .mat-display-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mat-display-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-primary);
+      margin-bottom: 8px;
+    }
+
+    .mat-display-title {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      color: var(--text-main);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .mat-display-desc {
+      color: var(--text-body);
+      font-size: 1.02rem;
+      line-height: 1.65;
+      margin-bottom: 30px;
+    }
+
+    .mat-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .mat-metric-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+    }
+
+    .mat-metric-label {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .mat-metric-value {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .mat-display-image {
+      position: relative;
+      background: #F1F5F9;
+      overflow: hidden;
+    }
+
+    .mat-display-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .material-card-display:hover .mat-display-image img {
+      transform: scale(1.03);
+    }
+
+    .mat-image-badge {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(10px);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* -------------------------------------------------------------
+       CATEGORY GRID
+       ------------------------------------------------------------- */
+    .categories-section {
+      padding: 95px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .category-card {
+      position: relative;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .category-image-wrap {
+      width: 100%;
+      height: 270px;
+      overflow: hidden;
+      position: relative;
+      background: #F8FAFC;
+    }
+
+    .category-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover .category-image-wrap img {
+      transform: scale(1.05);
+    }
+
+    .category-tag-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-main);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .category-info {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .category-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .category-summary {
+      color: var(--text-body);
+      font-size: 0.94rem;
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+
+    .category-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 18px;
+    }
+
+    .category-price-range {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    .explore-link {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .category-card:hover .explore-link {
+      gap: 10px;
+      color: var(--accent-primary);
+    }
+
+    /* -------------------------------------------------------------
+       FEATURED PRODUCTS SHOWCASE
+       ------------------------------------------------------------- */
+    .products-section {
+      padding: 95px 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .product-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-body);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+    }
+
+    .filter-chip:hover {
+      border-color: var(--border-medium);
+      color: var(--text-main);
+    }
+
+    .filter-chip.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+      font-weight: 700;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-base);
+      position: relative;
+      box-shadow: var(--shadow-card);
+    }
+
+    .product-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-5px);
+    }
+
+    .product-badge-overlay {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .pill-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .pill-bestseller {
+      background: var(--text-main);
+      color: #FFF;
+    }
+
+    .pill-material {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-body);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-img-box {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      position: relative;
+      background: #F8FAFC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-box img {
+      transform: scale(1.05);
+    }
+
+    .quick-view-overlay-btn {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-card:hover .quick-view-overlay-btn {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .product-details {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .product-category-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #F59E0B;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .product-description-snippet {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .color-swatches-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .color-swatch-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-right: 4px;
+      font-weight: 600;
+    }
+
+    .swatch-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 1px var(--border-medium);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .swatch-dot:hover {
+      transform: scale(1.18);
+    }
+
+    .swatch-dot.active {
+      box-shadow: 0 0 0 2px var(--accent-primary);
+    }
+
+    .swatch-black { background: #1E293B; }
+    .swatch-tan { background: #C2410C; }
+    .swatch-forest { background: #166534; }
+    .swatch-slate { background: #64748B; }
+    .swatch-navy { background: #1E3A8A; }
+
+    .product-action-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 18px;
+    }
+
+    .price-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .current-price {
+      font-family: var(--font-display);
+      font-size: 1.38rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .original-price {
+      font-size: 0.84rem;
+      text-decoration: line-through;
+      color: var(--text-light);
+    }
+
+    .add-to-cart-btn {
+      background: var(--text-main);
+      color: #FFF;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.15);
+      transition: var(--transition-base);
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(194, 65, 12, 0.3);
+    }
+
+    /* -------------------------------------------------------------
+       WHY WALLETMANDU (VALUE PROPOSITIONS)
+       ------------------------------------------------------------- */
+    .features-section {
+      padding: 95px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      transition: var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .feature-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      margin-bottom: 22px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      color: var(--text-body);
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+
+    /* Slimness Banner */
+    .slimness-banner {
+      margin-top: 50px;
+      background: linear-gradient(135deg, #FFF7ED 0%, #F8FAFC 100%);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-lg);
+      padding: 36px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .slimness-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .slimness-info p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+    }
+
+    .slimness-stat-row {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .slim-stat-col {
+      text-align: center;
+    }
+
+    .slim-stat-number {
+      font-family: var(--font-display);
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .slim-stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    /* -------------------------------------------------------------
+       MATERIAL COMPARISON TABLE
+       ------------------------------------------------------------- */
+    .comparison-section {
+      padding: 95px 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      box-shadow: var(--shadow-card);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comparison-table thead th {
+      background: #F8FAFC;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .comparison-table thead th:first-child {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .highlight-col {
+      background: var(--accent-subtle);
+    }
+
+    .comparison-table tbody tr:hover td {
+      background: #F8FAFC;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-check {
+      color: #059669;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+    }
+
+    /* -------------------------------------------------------------
+       SOCIAL PROOF & REVIEWS
+       ------------------------------------------------------------- */
+    .reviews-section {
+      padding: 95px 0;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .stats-counter-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-card:hover {
+      border-color: var(--border-medium);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .review-stars {
+      color: #F59E0B;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 2px;
+    }
+
+    .review-text {
+      color: var(--text-body);
+      font-size: 0.96rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent-primary);
+    }
+
+    .author-info h4 {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    .author-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .verified-badge {
+      color: #059669;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-weight: 700;
+    }
+
+    /* -------------------------------------------------------------
+       INSTAGRAM & LIFESTYLE STRIP
+       ------------------------------------------------------------- */
+    .lifestyle-section {
+      padding: 75px 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .lifestyle-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .lifestyle-item {
+      position: relative;
+      height: 200px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #E2E8F0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lifestyle-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .lifestyle-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: #FFF;
+      font-size: 1.3rem;
+    }
+
+    .lifestyle-item:hover .lifestyle-overlay {
+      opacity: 1;
+    }
+
+    .lifestyle-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* -------------------------------------------------------------
+       NEWSLETTER & OFFER BAR
+       ------------------------------------------------------------- */
+    .newsletter-section {
+      padding: 85px 0;
+      background: #FFFFFF;
+    }
+
+    .newsletter-card {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 60px 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .newsletter-info h2 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .newsletter-info p {
+      color: #94A3B8;
+      font-size: 1.02rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      color: #FFF;
+      font-size: 0.94rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-input:focus {
+      border-color: #FDBA74;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .newsletter-input::placeholder {
+      color: #94A3B8;
+    }
+
+    .newsletter-subtext {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      margin-top: 10px;
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER
+       ------------------------------------------------------------- */
+    .site-footer {
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-subtle);
+      padding: 80px 0 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin: 18px 0 24px;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-body);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-base);
+    }
+
+    .social-btn:hover {
+      color: #FFF;
+      background: var(--text-main);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .copyright {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .payment-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .payment-badge {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-main);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* -------------------------------------------------------------
+       SLIDE-OVER CART DRAWER & BACKDROP
+       ------------------------------------------------------------- */
+    .cart-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .cart-drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: #FFFFFF;
+      border-left: 1px solid var(--border-subtle);
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-drawer);
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFFFF;
+    }
+
+    .cart-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .close-drawer-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .close-drawer-btn:hover {
+      color: var(--text-main);
+      background: var(--bg-subtle);
+    }
+
+    /* Free Shipping Progress */
+    .free-shipping-tracker {
+      background: var(--accent-subtle);
+      border-bottom: 1px solid var(--accent-border);
+      padding: 14px 24px;
+    }
+
+    .shipping-msg {
+      font-size: 0.84rem;
+      color: var(--accent-primary);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .shipping-bar-bg {
+      height: 6px;
+      width: 100%;
+      background: rgba(194, 65, 12, 0.15);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .shipping-bar-fill {
+      height: 100%;
+      width: 65%;
+      background: var(--accent-primary);
+      border-radius: 6px;
+      transition: width 0.4s ease;
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .cart-empty-state {
+      margin: auto;
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cart-item-img {
+      width: 74px;
+      height: 74px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #F1F5F9;
+      flex-shrink: 0;
+    }
+
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cart-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .cart-item-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .cart-item-variant {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .qty-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      padding: 2px 8px;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      color: var(--text-body);
+      font-size: 0.9rem;
+      padding: 0 4px;
+      font-weight: 700;
+    }
+
+    .qty-num {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--text-main);
+    }
+
+    .remove-item-btn {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      transition: color 0.2s;
+    }
+
+    .remove-item-btn:hover {
+      color: #EF4444;
+    }
+
+    .cart-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+    }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      margin-bottom: 8px;
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.18rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 14px 0 20px;
+      border-top: 1px dashed var(--border-medium);
+      padding-top: 12px;
+    }
+
+    /* -------------------------------------------------------------
+       QUICK VIEW MODAL
+       ------------------------------------------------------------- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 840px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-backdrop.active .modal-dialog {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--bg-secondary);
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-img-wrap {
+      background: #F8FAFC;
+      height: 100%;
+      min-height: 400px;
+      position: relative;
+    }
+
+    .modal-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-info-wrap {
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modal-specs-list {
+      margin: 18px 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-body);
+    }
+
+    .modal-specs-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-specs-list svg {
+      color: var(--accent-primary);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* -------------------------------------------------------------
+       STICKY MOBILE BOTTOM BAR
+       ------------------------------------------------------------- */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 12px 20px;
+      z-index: 90;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .sticky-bar-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sticky-bar-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .sticky-bar-price {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+    }
+
+    /* -------------------------------------------------------------
+       TOAST NOTIFICATION
+       ------------------------------------------------------------- */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0F172A;
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+      z-index: 1050;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transform: translateY(100px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast-notice.show {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .toast-icon {
+      color: #34D399;
+      font-weight: 800;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE BREAKPOINTS
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content {
+        margin: 0 auto;
+      }
+      .hero-cta-group,
+      .hero-social-proof,
+      .hero-trust-row {
+        justify-content: center;
+      }
+      .floating-top-right {
+        right: 10px;
+        top: 10px;
+      }
+      .floating-bottom-left {
+        left: 10px;
+        bottom: 70px;
+      }
+      .categories-section .category-grid,
+      .products-grid,
+      .features-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .material-card-display {
+        grid-template-columns: 1fr;
+      }
+      .lifestyle-strip {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .stats-counter-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .newsletter-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .newsletter-form {
+        flex-direction: column;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn-primary {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .mobile-sticky-bar {
+        display: flex;
+      }
+      .categories-section .category-grid,
+      .products-grid,
+      .features-grid,
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-counter-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+      .lifestyle-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-trust-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .hero-img-display {
+        height: 320px;
+      }
+      .floating-card {
+        display: none;
+      }
+      .slimness-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+      }
+      .modal-body {
+        grid-template-columns: 1fr;
+      }
+      .modal-img-wrap {
+        height: 240px;
+        min-height: auto;
+      }
+      .modal-info-wrap {
+        padding: 24px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <span>✨ <strong>WALLET15</strong> for 15% off first order</span>
+    <span>•</span>
+    <span>Free Express Worldwide Shipping over $50</span>
+    <span>•</span>
+    <span>3-Year Craftsmanship Guarantee</span>
+  </aside>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar" id="mainNav">
+    <div class="container navbar-inner">
+      <a href="#" class="logo" aria-label="WalletMandu Homepage">
+        <div class="logo-icon">
+          <!-- Monogram / Wallet Geometric Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="13" rx="3"></rect>
+            <path d="M2 10h20"></path>
+            <circle cx="16" cy="14" r="1.5" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <span>WalletMandu</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#products" class="nav-link">Shop</a></li>
+          <li><a href="#materials" class="nav-link">Materials</a></li>
+          <li><a href="#categories" class="nav-link">Silhouettes</a></li>
+          <li><a href="#why-us" class="nav-link">Craftsmanship</a></li>
+          <li><a href="#comparison" class="nav-link">Specs Matrix</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Quick Cart Trigger -->
+        <button class="cart-btn" id="openCartBtn" aria-label="Open Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cartCountBadge">2</span>
+        </button>
+
+        <a href="#products" class="btn btn-primary btn-sm">Shop Collection</a>
+
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a href="#products" class="mobile-nav-link"><span>Shop All Wallets</span> <span>&rarr;</span></a>
+      <a href="#materials" class="mobile-nav-link"><span>Material Technology</span> <span>&rarr;</span></a>
+      <a href="#categories" class="mobile-nav-link"><span>Carry Silhouettes</span> <span>&rarr;</span></a>
+      <a href="#why-us" class="mobile-nav-link"><span>Why WalletMandu</span> <span>&rarr;</span></a>
+      <a href="#comparison" class="mobile-nav-link"><span>Material Matrix</span> <span>&rarr;</span></a>
+      <a href="#reviews" class="mobile-nav-link"><span>Customer Reviews</span> <span>&rarr;</span></a>
+      <div style="padding-top: 10px;">
+        <a href="#products" class="btn btn-primary" style="width: 100%; border-bottom: none;" onclick="closeMobileNav()">Shop Collection Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION — TRADITIONAL WALLET E-COMMERCE SHOWCASE -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-wrap">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>2026 Handcrafted Physical Carry Collection</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          Everyday Carry, <br>
+          <span class="hero-title-highlight">Refined to an Art.</span>
+        </h1>
+
+        <p class="hero-desc">
+          The physical wallet upgrade you didn't know you needed. Handcrafted precision in rich microfiber PU leather, all-weather PVC, ballistic nylon, and recycled tech polyester. Zero pocket bulge, full aerospace RFID security.
+        </p>
+
+        <!-- Customer Social Proof Stack -->
+        <div class="hero-social-proof">
+          <div class="avatar-stack">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Customer avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Customer avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Customer avatar">
+            <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=100&q=80" alt="Customer avatar">
+          </div>
+          <div class="proof-text">
+            <div class="stars-row">★★★★★ <strong>4.92 / 5</strong></div>
+            <span>Endorsed by 18,000+ daily carriers</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#products" class="btn btn-accent">
+            <span>Shop The Apex Bifold</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#materials" class="btn btn-secondary">
+            <span>Explore Materials</span>
+          </a>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>Free Shipping</strong>
+              <span>Worldwide over $50</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>3-Year Warranty</strong>
+              <span>Zero-tear seam guarantee</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                <path d="M21 3v5h-5"></path>
+                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                <path d="M8 16H3v5"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>30-Day Trial</strong>
+              <span>Risk-free returns</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Stage with Multi-Angle Switcher -->
+      <div class="hero-visual-stage">
+        <div class="hero-showcase-box">
+          <div class="hero-img-display">
+            <!-- Studio photography of genuine physical wallet -->
+            <img src="hero-wallet.jpg" alt="WalletMandu Apex Physical Bifold in Cognac Amber finish" id="heroMainImage">
+          </div>
+
+          <!-- Angle / View Switcher -->
+          <div class="hero-view-switch-bar">
+            <div class="view-btn-group">
+              <button class="view-switch-btn active" onclick="switchHeroAngle('open', this)">Open Interior</button>
+              <button class="view-switch-btn" onclick="switchHeroAngle('closed', this)">Closed Profile</button>
+              <button class="view-switch-btn" onclick="switchHeroAngle('lifestyle', this)">Desk EDC</button>
+            </div>
+
+            <!-- Color Palette Preview -->
+            <div class="hero-color-preview">
+              <span>Color:</span>
+              <div class="hero-swatch active" style="background:#C2410C;" title="Artisan Cognac Tan" onclick="switchHeroColor('tan', this)"></div>
+              <div class="hero-swatch" style="background:#1E293B;" title="Obsidian Black" onclick="switchHeroColor('black', this)"></div>
+              <div class="hero-swatch" style="background:#166534;" title="Forest Olive" onclick="switchHeroColor('forest', this)"></div>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-card floating-top-right">
+            <div class="floating-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="6" x2="16" y2="6"></line>
+                <line x1="4" y1="18" x2="12" y2="18"></line>
+              </svg>
+            </div>
+            <div class="floating-info">
+              <strong>Ultra-Slim 8.5mm</strong>
+              <span>Zero front-pocket bulk</span>
+            </div>
+          </div>
+
+          <div class="floating-card floating-bottom-left">
+            <div class="floating-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <circle cx="12" cy="11" r="3"></circle>
+              </svg>
+            </div>
+            <div class="floating-info">
+              <strong>Dual-Layer RFID Shield</strong>
+              <span>Blocks 13.56 MHz frequencies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAL SHOWCASE SECTION -->
+  <section class="materials-section" id="materials">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Tactile Science & Craft</span>
+        <h2 class="section-heading">Four Next-Gen Materials. One Uncompromising Standard.</h2>
+        <p class="section-subtitle">
+          We reject brittle bonded scrap leather. Instead, we engineer physical wallets using durable PU, all-weather PVC, ballistic nylon, and high-tenacity polyester.
+        </p>
+      </div>
+
+      <!-- Tab Selectors -->
+      <div class="materials-tabs-nav" role="tablist">
+        <button class="mat-tab-btn active" data-mat="pu" role="tab" aria-selected="true">
+          <span>🌿 Microfiber PU Leather</span>
+        </button>
+        <button class="mat-tab-btn" data-mat="pvc" role="tab" aria-selected="false">
+          <span>🛡️ Weather-Lock PVC Matrix</span>
+        </button>
+        <button class="mat-tab-btn" data-mat="nylon" role="tab" aria-selected="false">
+          <span>⚡ 1000D Ballistic Nylon</span>
+        </button>
+        <button class="mat-tab-btn" data-mat="poly" role="tab" aria-selected="false">
+          <span>♻️ EcoTech Recycled Polyester</span>
+        </button>
+      </div>
+
+      <!-- Dynamic Material Card View -->
+      <div class="material-card-display" id="materialDisplayCard">
+        <div class="mat-display-content">
+          <span class="mat-display-tag" id="matTag">Executive Refinement</span>
+          <h3 class="mat-display-title" id="matTitle">Microfiber Polyurethane (PU Leather)</h3>
+          <p class="mat-display-desc" id="matDesc">
+            Formulated from ultra-dense polyurethane microfibers with an organic grain topcoat. Delivers the rich buttery warmth and patina of traditional calfskin, without water sensitivity, creasing, or cracking.
+          </p>
+
+          <div class="mat-metrics-grid">
+            <div class="mat-metric-box">
+              <span class="mat-metric-label">Durability Score</span>
+              <span class="mat-metric-value" id="matDurability">9.4 / 10</span>
+            </div>
+            <div class="mat-metric-box">
+              <span class="mat-metric-label">Water Resistance</span>
+              <span class="mat-metric-value" id="matWater">Splash Proof (IPX4)</span>
+            </div>
+            <div class="mat-metric-box">
+              <span class="mat-metric-label">Tactile Texture</span>
+              <span class="mat-metric-value" id="matFeel">Supple Nappa Grain</span>
+            </div>
+            <div class="mat-metric-box">
+              <span class="mat-metric-label">Price / Value Tier</span>
+              <span class="mat-metric-value" id="matTier">Premium Classic ($44 - $58)</span>
+            </div>
+          </div>
+
+          <div>
+            <a href="#products" class="btn btn-primary btn-sm" onclick="filterByMaterial('PU Leather')">
+              <span>View PU Wallets</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="mat-display-image">
+          <img src="https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=900&q=80" alt="PU Leather Texture and Craftsmanship" id="matImg">
+          <div class="mat-image-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color: #059669;">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span id="matFeatureBadge">Scratch-Resistant Coating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORY GRID -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Silhouettes</span>
+        <h2 class="section-heading">Built for Every Carry Style</h2>
+        <p class="section-subtitle">
+          Choose the silhouette tailored to your routine: from featherweight front-pocket minimalists to expansive multi-currency travel folios.
+        </p>
+      </div>
+
+      <div class="category-grid">
+        <!-- Card 1: Bifold -->
+        <div class="category-card">
+          <div class="category-image-wrap">
+            <span class="category-tag-badge">Most Popular</span>
+            <img src="hero-wallet.jpg" alt="Bifold Wallet Category">
+          </div>
+          <div class="category-info">
+            <div>
+              <h3 class="category-name">The Modern Bifold</h3>
+              <p class="category-summary">
+                Classic dual-wing architecture re-engineered with an internal pull-tab, quick-access exterior slot, and cash fold.
+              </p>
+            </div>
+            <div class="category-footer">
+              <span class="category-price-range">From $38 — $54</span>
+              <a href="#products" class="explore-link" onclick="filterByCategory('Bifold')">
+                <span>Explore Bifolds</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Trifold -->
+        <div class="category-card">
+          <div class="category-image-wrap">
+            <span class="category-tag-badge">Maximum Capacity</span>
+            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80" alt="Trifold Wallet Category">
+          </div>
+          <div class="category-info">
+            <div>
+              <h3 class="category-name">Tactical Trifold</h3>
+              <p class="category-summary">
+                Triple-fold security for carriers with up to 14 cards, dedicated ID flip window, hidden sim slot, and zip coin pouch.
+              </p>
+            </div>
+            <div class="category-footer">
+              <span class="category-price-range">From $44 — $62</span>
+              <a href="#products" class="explore-link" onclick="filterByCategory('Trifold')">
+                <span>Explore Trifolds</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Travel Wallet & Card Sleeve -->
+        <div class="category-card">
+          <div class="category-image-wrap">
+            <span class="category-tag-badge">Globetrotter EDC</span>
+            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" alt="Travel Wallet Category">
+          </div>
+          <div class="category-info">
+            <div>
+              <h3 class="category-name">Travel Passport Folio</h3>
+              <p class="category-summary">
+                Full passport sleeve, micro-pen holder, airline boarding pass stash, and dual currency compartments in ripstop fabric.
+              </p>
+            </div>
+            <div class="category-footer">
+              <span class="category-price-range">From $48 — $68</span>
+              <a href="#products" class="explore-link" onclick="filterByCategory('Travel')">
+                <span>Explore Travel</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS SHOWCASE -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Curated Flagships</span>
+        <h2 class="section-heading">Engineered Physical Wallets</h2>
+        <p class="section-subtitle">
+          Select your variant, material finish, and personal palette. Every unit is tested for 50,000 hinge flexes.
+        </p>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="product-filter-bar">
+        <button class="filter-chip active" data-filter="all">All Models</button>
+        <button class="filter-chip" data-filter="bifold">Bifolds</button>
+        <button class="filter-chip" data-filter="trifold">Trifolds</button>
+        <button class="filter-chip" data-filter="travel">Travel Folio</button>
+        <button class="filter-chip" data-filter="cardholder">Card Sleeves</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGridContainer">
+        <!-- Rendered dynamically by JavaScript with variant selection and quick view triggers -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WALLETMANDU (VALUE PROPOSITIONS) -->
+  <section class="features-section" id="why-us">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">The WalletMandu Advantage</span>
+        <h2 class="section-heading">Why We Outperform Designer Leather</h2>
+        <p class="section-subtitle">
+          Built without bloated luxury markups. Crafted with aerospace physics, smart composite ergonomics, and enduring materials.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Dual-Band RFID Matrix</h3>
+          <p class="feature-desc">
+            Interleaved copper-nickel inner mesh shields 13.56 MHz RFID and NFC frequencies, protecting credit cards and transit passes against skimming attempts.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-title">3-Year Zero-Fray Guarantee</h3>
+          <p class="feature-desc">
+            High-tensile bonded nylon threads and bar-tack reinforced stress corners ensure your wallet stays intact through years of harsh daily abuse.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+              <line x1="16" y1="8" x2="2" y2="22"></line>
+              <line x1="17.5" y1="15" x2="9" y2="15"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">100% Cruelty-Free & Vegan</h3>
+          <p class="feature-desc">
+            Zero toxic chrome tanning chemicals, zero animal products. Certified vegan materials that resist water, sweat, UV yellowing, and mold.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Smart Quick-Eject Geometry</h3>
+          <p class="feature-desc">
+            Ergonomic thumb-glide cutouts and elastic pull tabs let you retrieve your two most-used cards in under 0.8 seconds without opening the main fold.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="feature-title">Weatherproof IPX4 Shield</h3>
+          <p class="feature-desc">
+            PVC welded seams and DWR-coated ballistic weaves shed rain, coffee spills, and sweat so your paper cash and cards stay bone-dry in any storm.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+              <line x1="12" y1="6" x2="12" y2="8"></line>
+              <line x1="12" y1="16" x2="12" y2="18"></line>
+            </svg>
+          </div>
+          <h3 class="feature-title">Fair Direct-to-Consumer Pricing</h3>
+          <p class="feature-desc">
+            No middleman distribution markups. Premium industrial materials and meticulous assembly delivered at a sensible price point under $65.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slimness stat banner -->
+      <div class="slimness-banner">
+        <div class="slimness-info">
+          <h3>The "Costanza" Bulky Wallet Is Officially Dead.</h3>
+          <p>Traditional leather bi-folds average 28mm thick when loaded. WalletMandu stays under 10mm.</p>
+        </div>
+        <div class="slimness-stat-row">
+          <div class="slim-stat-col">
+            <div class="slim-stat-number">-64%</div>
+            <div class="slim-stat-label">Pocket Bulk</div>
+          </div>
+          <div class="slim-stat-col">
+            <div class="slim-stat-number">48g</div>
+            <div class="slim-stat-label">Average Weight</div>
+          </div>
+          <div class="slim-stat-col">
+            <div class="slim-stat-number">12+</div>
+            <div class="slim-stat-label">Cards Stored</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAL COMPARISON TABLE -->
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Direct Comparison</span>
+        <h2 class="section-heading">Material Science Breakdown</h2>
+        <p class="section-subtitle">
+          Compare physical properties across all 4 production materials to match your lifestyle and climate.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Material Metric</th>
+              <th class="highlight-col">🌿 Microfiber PU Leather</th>
+              <th>🛡️ Weather-Lock PVC</th>
+              <th>⚡ 1000D Ballistic Nylon</th>
+              <th>♻️ EcoTech Recycled Poly</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tactile Feel & Aesthetic</strong></td>
+              <td class="highlight-col">Supple luxury grain; warm hand feel</td>
+              <td>Matte sleek rubberized; industrial</td>
+              <td>Textured tactical weave; rugged</td>
+              <td>Smooth woven canvas; lightweight</td>
+            </tr>
+            <tr>
+              <td><strong>Scratch & Abrasion Resistance</strong></td>
+              <td class="highlight-col"><span class="status-check">★★★★★ Extreme</span></td>
+              <td><span class="status-check">★★★★☆ High</span></td>
+              <td><span class="status-check">★★★★★ Military-Spec</span></td>
+              <td><span class="status-check">★★★★☆ Everyday</span></td>
+            </tr>
+            <tr>
+              <td><strong>Water & Spill Protection</strong></td>
+              <td class="highlight-col">Splash proof (IPX4)</td>
+              <td>100% Submersion resistant</td>
+              <td>DWR water-repellent finish</td>
+              <td>Hydrophobic repellent coating</td>
+            </tr>
+            <tr>
+              <td><strong>Unloaded Thickness</strong></td>
+              <td class="highlight-col">8.5 mm</td>
+              <td>8.0 mm</td>
+              <td>7.5 mm</td>
+              <td><strong>6.8 mm</strong> (Thinnest)</td>
+            </tr>
+            <tr>
+              <td><strong>Weight (Standard Bifold)</strong></td>
+              <td class="highlight-col">52 grams</td>
+              <td>48 grams</td>
+              <td>42 grams</td>
+              <td><strong>38 grams</strong> (Ultralight)</td>
+            </tr>
+            <tr>
+              <td><strong>Best Suited For</strong></td>
+              <td class="highlight-col">Office, business dinners, modern suits</td>
+              <td>Commuters, cyclists, rainy climates</td>
+              <td>Outdoor adventures, EDC, tactical</td>
+              <td>Minimalists, gym sessions, travel</td>
+            </tr>
+            <tr>
+              <td><strong>Typical Price Range</strong></td>
+              <td class="highlight-col"><strong>$42 – $56</strong></td>
+              <td><strong>$36 – $48</strong></td>
+              <td><strong>$38 – $52</strong></td>
+              <td><strong>$32 – $44</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF & CUSTOMER REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Real Carriers</span>
+        <h2 class="section-heading">Endorsed by 48,000+ Everyday Pockets</h2>
+        <p class="section-subtitle">
+          See why tech workers, designers, travelers, and EDC enthusiasts retired their bulky leather trifolds.
+        </p>
+      </div>
+
+      <!-- Animated Stat Counter Strip -->
+      <div class="stats-counter-strip">
+        <div class="stat-card">
+          <div class="stat-number" data-target="48500">48,500+</div>
+          <div class="stat-label">Wallets Shipped Globally</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="4.9">4.92 / 5</div>
+          <div class="stat-label">Average Customer Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="99.4">99.4%</div>
+          <div class="stat-label">Retention & Satisfaction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="3">3 Years</div>
+          <div class="stat-label">Included Craft Guarantee</div>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "I ditched my $120 designer leather wallet for the Apex PU Bifold. The material looks even better after 6 months of daily jeans carry and doesn't get that greasy sticky feeling genuine leather gets in humidity."
+            </p>
+          </div>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Sarah K." class="author-avatar">
+            <div class="author-info">
+              <h4>Sarah K.</h4>
+              <div class="author-meta">
+                <span>Senior UX Architect</span>
+                <span>•</span>
+                <span class="verified-badge">✓ Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The 1000D Ballistic Nylon Trifold is ridiculous. It fits 10 cards and my foreign cash notes yet stays flatter than my phone. The pull-tab ejector card slot is a game-changer at subway fare gates."
+            </p>
+          </div>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Marcus Chen" class="author-avatar">
+            <div class="author-info">
+              <h4>Marcus Chen</h4>
+              <div class="author-meta">
+                <span>Product Designer, SF</span>
+                <span>•</span>
+                <span class="verified-badge">✓ Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "Traveled across 4 countries with the Nomad Passport Travel Folio in PVC. Got poured on during a monsoon in Tokyo and my boarding passes and passport inside were bone dry. Worth 3x the price."
+            </p>
+          </div>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Julian Meyer" class="author-avatar">
+            <div class="author-info">
+              <h4>Julian Meyer</h4>
+              <div class="author-meta">
+                <span>Remote Engineer</span>
+                <span>•</span>
+                <span class="verified-badge">✓ Verified Buyer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM / LIFESTYLE STRIP -->
+  <section class="lifestyle-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="section-eyebrow">Community Showcase</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.4rem; color: var(--text-main);">Follow @WalletMandu #CarrySmarter</h3>
+      </div>
+
+      <div class="lifestyle-strip">
+        <div class="lifestyle-item">
+          <img src="hero-wallet.jpg" alt="Wallet EDC in Hand">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+        <div class="lifestyle-item">
+          <img src="hero-wallet-closed.jpg" alt="Flatlay Desk Setup with Wallet">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+        <div class="lifestyle-item">
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&q=80" alt="Leather Texture & Keys EDC">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+        <div class="lifestyle-item">
+          <img src="https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=400&q=80" alt="Coffee Shop Pocket Dump">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+        <div class="lifestyle-item">
+          <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80" alt="Passport Travel Setup">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+        <div class="lifestyle-item">
+          <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=400&q=80" alt="Slim Wallet in Back Pocket">
+          <div class="lifestyle-overlay"><span>📷</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER / 15% OFF OFFER BAR -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-info">
+          <h2>Upgrade Your Pocket. Get 15% Off Your First Carry.</h2>
+          <p>
+            Join 35,000+ members who receive exclusive early access to small-batch drops, material tests, and subscriber-only discounts.
+          </p>
+        </div>
+
+        <div>
+          <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+            <input type="email" class="newsletter-input" placeholder="Enter your best email..." required id="newsletterEmail">
+            <button type="submit" class="btn btn-accent">Claim 15% Off</button>
+          </form>
+          <div class="newsletter-subtext">No spam. Instant discount code delivered upon subscription. Unsubscribe anytime.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <rect x="2" y="6" width="20" height="13" rx="3"></rect>
+                <path d="M2 10h20"></path>
+                <circle cx="16" cy="14" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <span>WalletMandu</span>
+          </a>
+          <p>
+            Modern, physical everyday carry engineered with high-grade synthetic polymers, ballistic weaves, and aerospace RFID protection. Never bulky, always ready.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#products">Apex Bifold Line</a></li>
+            <li><a href="#products">Tactix Ballistic Trifold</a></li>
+            <li><a href="#products">Nomad Travel Folio</a></li>
+            <li><a href="#products">Vanguard Card Sleeve</a></li>
+            <li><a href="#products">Special Edition Carbon PU</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Materials & Specs</h4>
+          <ul class="footer-links">
+            <li><a href="#materials">Microfiber PU Vegan Leather</a></li>
+            <li><a href="#materials">Weather-Lock PVC Film</a></li>
+            <li><a href="#materials">1000D Ballistic Cordura</a></li>
+            <li><a href="#materials">Recycled Eco Polyester</a></li>
+            <li><a href="#comparison">Full Tech Comparison Table</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support & Guarantee</h4>
+          <ul class="footer-links">
+            <li><a href="#why-us">3-Year Warranty Claims</a></li>
+            <li><a href="#hero">Worldwide Shipping Rates</a></li>
+            <li><a href="#why-us">30-Day Money-Back Policy</a></li>
+            <li><a href="#reviews">Customer Testimonials</a></li>
+            <li><a href="mailto:support@walletmandu.com">support@walletmandu.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright">
+          © 2026 WalletMandu Corp. All rights reserved. Handcrafted physical goods engineered for daily utility.
+        </div>
+        <div class="payment-icons">
+          <span class="payment-badge">VISA</span>
+          <span class="payment-badge">MASTERCARD</span>
+          <span class="payment-badge">APPLE PAY</span>
+          <span class="payment-badge">GOOGLE PAY</span>
+          <span class="payment-badge">PAYPAL</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <div class="cart-title">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span>Your Pocket Upgrade (<span id="cartItemCountText">2</span>)</span>
+      </div>
+      <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close cart">✕</button>
+    </div>
+
+    <!-- Free shipping meter -->
+    <div class="free-shipping-tracker">
+      <div class="shipping-msg" id="shippingMeterMsg">🎉 You've unlocked FREE Worldwide Express Shipping!</div>
+      <div class="shipping-bar-bg">
+        <div class="shipping-bar-fill" id="shippingBarFill" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart items list -->
+    <div class="cart-items-list" id="cartItemsContainer">
+      <!-- Items dynamically populated via JavaScript -->
+    </div>
+
+    <!-- Cart footer -->
+    <div class="cart-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotalText">$92.00</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Estimated Shipping</span>
+        <span style="color: #059669; font-weight: 700;">FREE</span>
+      </div>
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartGrandTotalText">$92.00</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" onclick="handleCheckout()">
+        <span>Proceed to Secure Checkout</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      </button>
+      <div style="font-size: 0.74rem; text-align: center; color: var(--text-muted); margin-top: 10px;">
+        🔒 256-Bit SSL Encrypted Checkout • 30-Day Risk-Free Returns
+      </div>
+    </div>
+  </aside>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="modal-backdrop" id="quickViewModal">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close product preview">✕</button>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img src="" alt="Product Preview" id="modalProductImg">
+        </div>
+        <div class="modal-info-wrap">
+          <span class="badge" id="modalBadge">Bestseller</span>
+          <h3 style="font-family: var(--font-display); font-size: 1.8rem; color: var(--text-main); margin: 10px 0 6px;" id="modalProductName">Apex Minimalist Bifold</h3>
+          <div style="font-size: 1.25rem; font-family: var(--font-display); font-weight: 700; color: var(--accent-primary); margin-bottom: 14px;" id="modalProductPrice">$48.00</div>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;" id="modalProductDesc">
+            Precision handcrafted from resilient polyurethane microfiber with reinforced seam bindings. Houses up to 10 cards and flat cash without pocket bulge.
+          </p>
+
+          <ul class="modal-specs-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span id="modalSpec1">Material: Engineered Microfiber PU Leather</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Aerospace RFID Blocking Shielding layer</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Capacity: 8-12 Cards + Full Bill Stash</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Weight: Only 48 grams (Ultra-light)</span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 14px; display: flex; gap: 12px;">
+            <button class="btn btn-primary" id="modalAddBtn" style="flex: 1;">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-sticky-bar">
+    <div class="sticky-bar-info">
+      <span class="sticky-bar-name">Apex Minimalist Bifold</span>
+      <span class="sticky-bar-price">$48.00 • Free Ship</span>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="quickAddCurrentFeatured()">Quick Shop</button>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notice" id="toastNotice">
+    <span class="toast-icon">✓</span>
+    <span id="toastMsg">Added to your pocket cart!</span>
+  </div>
+
+  <!-- -------------------------------------------------------------
+       JAVASCRIPT INTERACTIONS (Products, Cart, Materials, Modals)
+       ------------------------------------------------------------- -->
+  <script>
+    // 1. Data Store: Products with real physical materials & variants
+    const PRODUCTS = [
+      {
+        id: 'apex-bifold-tan',
+        name: 'Apex Minimalist Bifold',
+        category: 'bifold',
+        categoryName: 'Bifold',
+        material: 'PU Leather',
+        materialType: 'Microfiber PU',
+        price: 48.00,
+        originalPrice: 62.00,
+        rating: '4.95',
+        reviewsCount: 342,
+        badge: 'Bestseller',
+        description: 'Our flagship bifold in rich artisan tan PU finish. Houses 10 cards and full cash with zero front-pocket bulge.',
+        img: 'hero-wallet.jpg',
+        colors: [
+          { name: 'Artisan Tan', class: 'swatch-tan', img: 'hero-wallet.jpg' },
+          { name: 'Obsidian Black', class: 'swatch-black', img: 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=700&q=80' },
+          { name: 'Forest Moss', class: 'swatch-forest', img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80' }
+        ]
+      },
+      {
+        id: 'strata-bifold-closed',
+        name: 'Heritage Monogram Bifold',
+        category: 'bifold',
+        categoryName: 'Bifold',
+        material: 'PU Leather',
+        materialType: 'Saddle Grain PU',
+        price: 46.00,
+        originalPrice: 58.00,
+        rating: '4.93',
+        reviewsCount: 198,
+        badge: 'Classic',
+        description: 'Clean burnished edges with debossed M-monogram. Slim folded architecture with quick front-card draw.',
+        img: 'hero-wallet-closed.jpg',
+        colors: [
+          { name: 'Cognac Amber', class: 'swatch-tan', img: 'hero-wallet-closed.jpg' },
+          { name: 'Nightfall Black', class: 'swatch-black', img: 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=700&q=80' }
+        ]
+      },
+      {
+        id: 'tactix-trifold-nylon',
+        name: 'Tactix 1000D Ballistic Trifold',
+        category: 'trifold',
+        categoryName: 'Trifold',
+        material: 'Ballistic Nylon',
+        materialType: '1000D Mil-Spec Nylon',
+        price: 52.00,
+        originalPrice: 68.00,
+        rating: '4.91',
+        reviewsCount: 218,
+        badge: 'Heavy Duty',
+        description: 'Triple-fold rugged architecture crafted with indestructible 1000D ballistic weave. Dual ID flip window & YKK coin stash.',
+        img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'Stealth Black', class: 'swatch-black', img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80' },
+          { name: 'Slate Grey', class: 'swatch-slate', img: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80' }
+        ]
+      },
+      {
+        id: 'nomad-travel-pvc',
+        name: 'Nomad Weather-Lock Travel Folio',
+        category: 'travel',
+        categoryName: 'Travel Folio',
+        material: 'PVC Matrix',
+        materialType: 'Welded PVC Membrane',
+        price: 58.00,
+        originalPrice: 75.00,
+        rating: '4.98',
+        reviewsCount: 189,
+        badge: 'Stormproof',
+        description: 'All-weather passport & travel document folio. Welded PVC seams seal out moisture, airport grime, and rain.',
+        img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'Matte Charcoal', class: 'swatch-black', img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80' },
+          { name: 'Cognac Brown', class: 'swatch-tan', img: 'hero-wallet.jpg' }
+        ]
+      },
+      {
+        id: 'vanguard-sleeve-poly',
+        name: 'Vanguard Eco-Ripstop Card Sleeve',
+        category: 'cardholder',
+        categoryName: 'Card Sleeve',
+        material: 'Recycled Polyester',
+        materialType: 'EcoTech Ripstop Poly',
+        price: 34.00,
+        originalPrice: 42.00,
+        rating: '4.88',
+        reviewsCount: 154,
+        badge: 'Ultralight 38g',
+        description: 'Featherweight 6.8mm card sleeve engineered with 100% recycled bottle polyester. Quick-draw front notch.',
+        img: 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'Deep Navy', class: 'swatch-navy', img: 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=700&q=80' },
+          { name: 'Black Ripstop', class: 'swatch-black', img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80' }
+        ]
+      },
+      {
+        id: 'komorebi-pu-trifold',
+        name: 'Komorebi Heritage PU Trifold',
+        category: 'trifold',
+        categoryName: 'Trifold',
+        material: 'PU Leather',
+        materialType: 'Vintage Grain PU',
+        price: 49.00,
+        originalPrice: 65.00,
+        rating: '4.94',
+        reviewsCount: 167,
+        badge: 'High Capacity',
+        description: 'Rich pebbled faux-leather trifold with 12 card slots, hidden cash divider, and magnetic closure snap.',
+        img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80',
+        colors: [
+          { name: 'Whiskey Cognac', class: 'swatch-tan', img: 'hero-wallet.jpg' },
+          { name: 'British Forest', class: 'swatch-forest', img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=80' }
+        ]
+      }
+    ];
+
+    // 2. Material Showcase Data
+    const MATERIALS_DATA = {
+      pu: {
+        tag: 'Executive Refinement',
+        title: 'Microfiber Polyurethane (PU Leather)',
+        desc: 'Formulated from ultra-dense polyurethane microfibers with an organic grain topcoat. Delivers the rich buttery warmth and patina of traditional calfskin, without water sensitivity, creasing, or cracking.',
+        durability: '9.4 / 10',
+        water: 'Splash Proof (IPX4)',
+        texture: 'Supple Nappa Grain',
+        tier: 'Premium Classic ($44 - $58)',
+        img: 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=900&q=80',
+        badge: 'Scratch-Resistant Coating'
+      },
+      pvc: {
+        tag: 'All-Weather Defense',
+        title: 'High-Density PVC Composite Film',
+        desc: 'Engineered for extreme environmental exposure. Features a non-porous elastomer structure with heat-welded joints that blocks 100% of liquid intrusion, road dirt, and daily sweat.',
+        durability: '9.8 / 10',
+        water: 'Submersion Rated (IPX7)',
+        texture: 'Matte Industrial Satin',
+        tier: 'Ultra-Durable ($36 - $48)',
+        img: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80',
+        badge: 'Heat-Welded Seams'
+      },
+      nylon: {
+        tag: 'Tactical Grade Strength',
+        title: '1000D Ballistic Cordura Nylon',
+        desc: 'Originally developed for military body armor. This heavy-duty plain weave uses high-tenacity nylon 6,6 filaments coated with polyurethane backing for unmatched puncture and friction resistance.',
+        durability: '9.9 / 10',
+        water: 'DWR Repellent Finish',
+        texture: 'Tactical Diamond Weave',
+        tier: 'Rugged Utility ($38 - $52)',
+        img: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=900&q=80',
+        badge: 'Zero-Tear Military Weave'
+      },
+      poly: {
+        tag: 'Sustainable Ultra-Light',
+        title: 'EcoTech Recycled Polyester',
+        desc: 'Spun from post-consumer recycled polymer bottles into an ultra-tight micro-ripstop matrix. Incredibly light (under 40 grams) with hydrophobic fiber technology that dries in minutes.',
+        durability: '8.9 / 10',
+        water: 'Hydrophobic Coating',
+        texture: 'Featherlight Grid Canvas',
+        tier: 'Eco Accessible ($32 - $44)',
+        img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=900&q=80',
+        badge: '100% Recycled PET'
+      }
+    };
+
+    // 3. Cart State Management
+    let cart = [
+      {
+        id: 'apex-bifold-tan',
+        name: 'Apex Minimalist Bifold',
+        variant: 'Artisan Tan / PU Leather',
+        price: 48.00,
+        qty: 1,
+        img: 'hero-wallet.jpg'
+      },
+      {
+        id: 'strata-bifold-closed',
+        name: 'Heritage Monogram Bifold',
+        variant: 'Cognac Amber / Closed',
+        price: 46.00,
+        qty: 1,
+        img: 'hero-wallet-closed.jpg'
+      }
+    ];
+
+    let activeFilter = 'all';
+
+    // DOM Elements
+    const productsGrid = document.getElementById('productsGridContainer');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartItemCountText = document.getElementById('cartItemCountText');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartSubtotalText = document.getElementById('cartSubtotalText');
+    const cartGrandTotalText = document.getElementById('cartGrandTotalText');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const shippingMeterMsg = document.getElementById('shippingMeterMsg');
+    const shippingBarFill = document.getElementById('shippingBarFill');
+    const toastNotice = document.getElementById('toastNotice');
+    const toastMsg = document.getElementById('toastMsg');
+
+    // Quick View Modal Elements
+    const quickViewModal = document.getElementById('quickViewModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalProductImg = document.getElementById('modalProductImg');
+    const modalProductName = document.getElementById('modalProductName');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const modalProductDesc = document.getElementById('modalProductDesc');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalSpec1 = document.getElementById('modalSpec1');
+    const modalAddBtn = document.getElementById('modalAddBtn');
+
+    // 4. Hero Visual Switcher Functions
+    const heroMainImage = document.getElementById('heroMainImage');
+
+    window.switchHeroAngle = function(angle, btn) {
+      document.querySelectorAll('.view-switch-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (angle === 'open') {
+        heroMainImage.src = 'hero-wallet.jpg';
+      } else if (angle === 'closed') {
+        heroMainImage.src = 'hero-wallet-closed.jpg';
+      } else if (angle === 'lifestyle') {
+        heroMainImage.src = 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=1200&q=85';
+      }
+    };
+
+    window.switchHeroColor = function(color, swatch) {
+      document.querySelectorAll('.hero-swatch').forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+
+      if (color === 'tan') {
+        heroMainImage.src = 'hero-wallet.jpg';
+        showToast("Switched to Artisan Cognac Tan");
+      } else if (color === 'black') {
+        heroMainImage.src = 'https://images.unsplash.com/photo-1556774687-0e2fdd0116c0?auto=format&fit=crop&w=1200&q=85';
+        showToast("Switched to Obsidian Black");
+      } else if (color === 'forest') {
+        heroMainImage.src = 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=85';
+        showToast("Switched to Forest Olive");
+      }
+    };
+
+    // 5. Render Products Grid
+    function renderProducts() {
+      const filtered = activeFilter === 'all' 
+        ? PRODUCTS 
+        : PRODUCTS.filter(p => p.category.toLowerCase() === activeFilter.toLowerCase());
+
+      productsGrid.innerHTML = filtered.map(p => `
+        <article class="product-card" id="card-${p.id}">
+          <div class="product-badge-overlay">
+            <span class="pill-badge pill-bestseller">${p.badge}</span>
+            <span class="pill-badge pill-material">${p.material}</span>
+          </div>
+
+          <div class="product-img-box">
+            <img src="${p.img}" alt="${p.name}" id="img-${p.id}" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="openQuickView('${p.id}')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Quick View</span>
+            </button>
+          </div>
+
+          <div class="product-details">
+            <div class="product-meta-row">
+              <span class="product-category-label">${p.categoryName} • ${p.materialType}</span>
+              <span class="product-rating">★ ${p.rating} <span style="color:var(--text-muted);font-weight:400;">(${p.reviewsCount})</span></span>
+            </div>
+
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-description-snippet">${p.description}</p>
+
+            <div class="color-swatches-wrap">
+              <span class="color-swatch-label">Color:</span>
+              ${p.colors.map((c, i) => `
+                <div class="swatch-dot ${c.class} ${i === 0 ? 'active' : ''}" 
+                     title="${c.name}"
+                     onclick="switchProductColor('${p.id}', '${c.img}', this)">
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="product-action-row">
+              <div class="price-group">
+                <span class="current-price">$${p.price.toFixed(2)}</span>
+                <span class="original-price">$${p.originalPrice.toFixed(2)}</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('${p.id}')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"></path>
+                </svg>
+                <span>Add to Cart</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // 6. Switch Product Color Swatch on Card
+    window.switchProductColor = function(productId, imgUrl, swatchEl) {
+      const card = document.getElementById(`card-${productId}`);
+      const img = document.getElementById(`img-${productId}`);
+      if (img) img.src = imgUrl;
+
+      if (card) {
+        card.querySelectorAll('.swatch-dot').forEach(el => el.classList.remove('active'));
+        swatchEl.classList.add('active');
+      }
+    };
+
+    // 7. Quick View Modal Logic
+    window.openQuickView = function(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      modalProductImg.src = product.img;
+      modalProductName.textContent = product.name;
+      modalProductPrice.textContent = `$${product.price.toFixed(2)}`;
+      modalProductDesc.textContent = product.description;
+      modalBadge.textContent = product.badge;
+      modalSpec1.textContent = `Material: ${product.materialType}`;
+
+      modalAddBtn.onclick = function() {
+        addToCart(product.id);
+        closeQuickView();
+      };
+
+      quickViewModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeQuickView() {
+      quickViewModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeQuickView);
+    quickViewModal.addEventListener('click', (e) => {
+      if (e.target === quickViewModal) closeQuickView();
+    });
+
+    // 8. Cart Drawer Operations
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartCountBadge.textContent = totalCount;
+      cartItemCountText.textContent = totalCount;
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      cartSubtotalText.textContent = `$${subtotal.toFixed(2)}`;
+      cartGrandTotalText.textContent = `$${subtotal.toFixed(2)}`;
+
+      // Free shipping bar ($50 threshold)
+      const freeShipThreshold = 50.0;
+      if (subtotal >= freeShipThreshold) {
+        shippingMeterMsg.innerHTML = "🎉 You've unlocked <strong>FREE Worldwide Express Shipping</strong>!";
+        shippingBarFill.style.width = '100%';
+        shippingBarFill.style.background = '#059669';
+      } else {
+        const remaining = (freeShipThreshold - subtotal).toFixed(2);
+        const percent = Math.min(100, Math.round((subtotal / freeShipThreshold) * 100));
+        shippingMeterMsg.innerHTML = `Add <strong>$${remaining}</strong> more to unlock <strong>FREE Shipping</strong>!`;
+        shippingBarFill.style.width = `${percent}%`;
+        shippingBarFill.style.background = 'var(--accent-primary)';
+      }
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+          <div class="cart-empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:12px;color:var(--text-muted);">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <h4 style="color:var(--text-main);margin-bottom:6px;">Your pocket is empty</h4>
+            <p style="font-size:0.86rem;">Add a handcrafted physical wallet to experience elevated daily carry.</p>
+          </div>
+        `;
+        return;
+      }
+
+      cartItemsContainer.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-details">
+            <div class="cart-item-top">
+              <div>
+                <h4 class="cart-item-name">${item.name}</h4>
+                <div class="cart-item-variant">${item.variant}</div>
+              </div>
+              <button class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Remove item">✕</button>
+            </div>
+            <div class="cart-item-bottom">
+              <div class="qty-control">
+                <button class="qty-btn" onclick="updateQty('${item.id}', -1)">−</button>
+                <span class="qty-num">${item.qty}</span>
+                <button class="qty-btn" onclick="updateQty('${item.id}', 1)">+</button>
+              </div>
+              <span class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    window.addToCart = function(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          variant: `${product.colors[0].name} / ${product.material}`,
+          price: product.price,
+          qty: 1,
+          img: product.img
+        });
+      }
+
+      updateCartUI();
+      showToast(`Added ${product.name} to cart!`);
+      openCart();
+    };
+
+    window.updateQty = function(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+      updateCartUI();
+    };
+
+    window.removeFromCart = function(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      updateCartUI();
+      showToast("Item removed from cart");
+    };
+
+    function openCart() {
+      cartDrawer.classList.add('active');
+      cartBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('active');
+      cartBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    openCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    cartBackdrop.addEventListener('click', closeCart);
+
+    // 9. Filter Chips
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderProducts();
+      });
+    });
+
+    window.filterByCategory = function(category) {
+      activeFilter = category.toLowerCase();
+      document.querySelectorAll('.filter-chip').forEach(b => {
+        if (b.dataset.filter.toLowerCase() === activeFilter) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      renderProducts();
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.filterByMaterial = function(matName) {
+      activeFilter = 'all';
+      renderProducts();
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      showToast(`Showing all wallets matching ${matName}`);
+    };
+
+    // 10. Material Tabs Showcase Logic
+    const matTabs = document.querySelectorAll('.mat-tab-btn');
+    matTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        matTabs.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const key = btn.dataset.mat;
+        const data = MATERIALS_DATA[key];
+        if (!data) return;
+
+        document.getElementById('matTag').textContent = data.tag;
+        document.getElementById('matTitle').textContent = data.title;
+        document.getElementById('matDesc').textContent = data.desc;
+        document.getElementById('matDurability').textContent = data.durability;
+        document.getElementById('matWater').textContent = data.water;
+        document.getElementById('matFeel').textContent = data.texture;
+        document.getElementById('matTier').textContent = data.tier;
+        document.getElementById('matImg').src = data.img;
+        document.getElementById('matFeatureBadge').textContent = data.badge;
+      });
+    });
+
+    // 11. Sticky Navbar background change on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 30) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // 12. Toast Notifications
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toastNotice.classList.add('show');
+      setTimeout(() => {
+        toastNotice.classList.remove('show');
+      }, 3400);
+    }
+
+    // 13. Newsletter Form Submission
+    window.handleNewsletter = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletterEmail').value;
+      if (email) {
+        showToast("Coupon WALLET15 generated! Enjoy 15% off.");
+        document.getElementById('newsletterForm').reset();
+      }
+    };
+
+    // 14. Checkout Handler
+    window.handleCheckout = function() {
+      if (cart.length === 0) {
+        showToast("Please add items to cart before checkout!");
+        return;
+      }
+      showToast("Redirecting to 256-bit encrypted checkout...");
+      setTimeout(() => {
+        alert("WalletMandu Demo Store: Thank you for testing! All checkout integrations ready for production stripe/payment gateways.");
+      }, 700);
+    };
+
+    window.quickAddCurrentFeatured = function() {
+      addToCart('apex-bifold-tan');
+    };
+
+    // 15. Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+
+    function toggleMobileNav() {
+      mobileNavDrawer.classList.toggle('active');
+    }
+
+    function closeMobileNav() {
+      mobileNavDrawer.classList.remove('active');
+    }
+
+    if (mobileMenuBtn && mobileNavDrawer) {
+      mobileMenuBtn.addEventListener('click', toggleMobileNav);
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+      });
+    }
+
+    // 16. Animated Stats Counter on Scroll
+    const statCards = document.querySelectorAll('.stat-number');
+    let hasAnimatedStats = false;
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimatedStats) {
+          hasAnimatedStats = true;
+          statCards.forEach(card => {
+            const rawTarget = card.getAttribute('data-target');
+            if (rawTarget === '48500') {
+              animateValue(card, 0, 48500, 1800, (v) => `${Math.floor(v).toLocaleString()}+`);
+            } else if (rawTarget === '4.9') {
+              animateValue(card, 0, 4.92, 1600, (v) => `${v.toFixed(2)} / 5`);
+            } else if (rawTarget === '99.4') {
+              animateValue(card, 0, 99.4, 1600, (v) => `${v.toFixed(1)}%`);
+            } else if (rawTarget === '3') {
+              animateValue(card, 0, 3, 1200, (v) => `${Math.floor(v)} Years`);
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector('.stats-counter-strip');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    function animateValue(element, start, end, duration, formatFn) {
+      const startTime = performance.now();
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOutQuad = 1 - (1 - progress) * (1 - progress);
+        const current = start + (end - start) * easeOutQuad;
+        element.textContent = formatFn(current);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    // Initialize
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
