@@ -26,7 +26,7 @@ export default function HeroSection({ products, status }) {
           className="button primary"
           href="#collection"
         >
-          Find your everyday <ArrowUpRight size={19} />
+          Shop Now <ArrowUpRight size={19} />
         </a>
         <div className="hero-footnote">
           <span className="nepali">सानो साथी, हरेक दिन।</span>

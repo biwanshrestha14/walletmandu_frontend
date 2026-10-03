@@ -482,7 +482,7 @@ svg {
 }
 .hero-scene {
   aspect-ratio: 0.94;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
   --scene: var(--scene-base);
 }
 .tone-dark {
@@ -1604,7 +1604,7 @@ td strong {
     font-size: 9px;
   }
   .hero-scene {
-    aspect-ratio: 0.65;
+    aspect-ratio: 0.2;
   }
   .hero-product-label {
     padding: 16px;
@@ -1872,7 +1872,7 @@ td strong {
     display: none;
   }
   .hero-scene {
-    aspect-ratio: 1.08;
+    aspect-ratio: 0.8;
   }
   .hero-product-label {
     padding: 17px 20px;
@@ -1994,6 +1994,14 @@ td strong {
   height: 100%;
   object-fit: contain;
   user-select: none;
+}
+@media (max-width: 760px) {
+  .wallet-gallery.hero-scene .wallet-gallery-image {
+    width: 100%;
+  }
+  .wallet-gallery.hero-scene .wallet-photo-stage {
+    bottom: 120px;
+  }
 }
 .wallet-carousel-controls {
   position: absolute;
