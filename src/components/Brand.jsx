@@ -7,7 +7,7 @@ export default function Brand({ light = false }) {
     >
       <span className="brand-logo">
         <img
-          src='../../public/walletmandulogo.png'
+          src={`${import.meta.env.BASE_URL}walletmandulogo.png`}
           alt="WalletMandu"
         />
       </span>
