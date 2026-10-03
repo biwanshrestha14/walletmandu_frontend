@@ -136,8 +136,6 @@ export default function Header({ count, onCart }) {
           </nav>
 
           <div className="header-actions">
-            <span className="currency">NPR / रु</span>
-
             <button
               className="icon-button theme-toggle"
               onClick={toggleTheme}
@@ -154,7 +152,7 @@ export default function Header({ count, onCart }) {
             >
               <ShoppingBag size={20} />
               <span className="bag-label">Bag</span>
-              <span className="bag-count">{count}</span>
+              {/* <span className="bag-count">{count}</span> */}
             </button>
 
             <button

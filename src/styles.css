@@ -202,12 +202,13 @@ svg {
   border-bottom: 1px solid currentColor;
 }
 .icon-button {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border:none;
 }
 .icon-button:hover {
   background: var(--surface-hover);
